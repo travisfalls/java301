@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+	<div class="row">
+		<h1>HOME</h1>
+
+		<table>
+			<thead>
+				<tr>
+					<th style="padding: 0px 20px 0px 20px">First Name</th>
+					<th style="padding: 0px 20px 0px 20px">Last Name</th>
+					<th style="padding: 0px 20px 0px 20px">Email</th>
+					<th style="padding: 0px 20px 0px 20px">Phone</th>
+					<th style="padding: 0px 20px 0px 20px">Active</th>
+					<th style="padding: 0px 20px 0px 20px">&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user : ${users}">
+					<td th:text="${user.firstName}" style="padding: 0px 20px 0px 20px"></td>
+					<td th:text="${user.lastName}" style="padding: 0px 20px 0px 20px"></td>
+					<td th:text="${user.email}" style="padding: 0px 20px 0px 20px"></td>
+					<td th:text="${user.phoneNumber}" style="padding: 0px 20px 0px 20px"></td>
+					<td th:text="${user.active}" style="padding: 0px 20px 0px 20px"></td>
+					<td><a href="/" th:href="@{|/user/${user.id}|}" style="padding: 0px 20px 0px 20px">View</a></td>
+				</tr>
+			</tbody>		
+		</table>
+	</div>
+</body>
+</html>
